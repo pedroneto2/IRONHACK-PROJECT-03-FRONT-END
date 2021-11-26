@@ -1,0 +1,63 @@
+@media (max-width: 768px) {
+  .login-content-container {
+    img {
+      margin-top: 52px;
+      margin-bottom: 23px;
+      width: 208px;
+    }
+
+    .button {
+      font-size: 14px;
+      width: 210px;
+    }
+  }
+
+  #handshake {
+    width: 100vw;
+    max-width: 600px;
+  }
+
+  .back-ranking-button {
+    margin-top: 90px;
+    margin-bottom: 53px;
+  }
+}
+
+@media (min-width: 768px) {
+  .login-content-container {
+    img {
+      width: 15vw;
+      max-width: 230px;
+      margin-bottom: 25px;
+    }
+
+    .button {
+      width: 20vw;
+      font-size: 24px;
+      max-width: 343px;
+      min-width: 230px;
+    }
+  }
+
+  #handshake {
+    width: 50vw;
+    max-width: 835px;
+    margin-right: 5vw;
+  }
+
+  .back-ranking-button {
+    margin-top: 15vw;
+  }
+
+  .login-page-container {
+    height: 100vh;
+  }
+}
+
+.login-content-container .button {
+  background-color: white;
+  border: 3px solid black;
+  text-align: center;
+  text-decoration: none;
+  color: black;
+}
