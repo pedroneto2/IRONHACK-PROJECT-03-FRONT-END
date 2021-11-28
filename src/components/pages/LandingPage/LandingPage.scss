@@ -26,30 +26,33 @@
   }
 }
 
-@media (min-width: 769px) {
+@media (min-width: 768px) {
   .landing-page-container {
     .text-container {
-      width: 675px;
-      font-size: 36px;
+      width: 45vw;
+      max-width: 575px;
+      font-size: 30px;
       padding-top: 55px;
     }
     .banner-container {
       img {
-        width: 323px;
+        width: 20vw;
+        max-width: 300px;
       }
     }
 
     .button {
-      font-size: 36px;
-      width: 385px;
-      margin-left: 100px;
+      font-size: 30px;
+      width: 35vw;
+      max-width: 385px;
+      margin-left: 10vw;
 
       p {
-        padding-top: 35px;
+        padding: 35px 15px 0 15px;
       }
 
       i {
-        font-size: 94px;
+        font-size: 65px;
       }
     }
   }

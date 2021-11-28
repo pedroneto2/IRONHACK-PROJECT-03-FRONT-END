@@ -13,6 +13,9 @@
   },
   "plugins": ["react"],
   "rules": {
+    "consistent-return": "off",
+    "react/jsx-no-constructed-context-values": "off",
+    "camelcase": "off",
     "operator-linebreak": "off",
     "import/no-unresolved": "off",
     "react/prop-types": "off",

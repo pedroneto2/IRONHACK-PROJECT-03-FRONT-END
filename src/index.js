@@ -6,10 +6,14 @@ import { BrowserRouter } from 'react-router-dom';
 import reportWebVitals from 'reportWebVitals';
 import AppRoutes from 'AppRoutes';
 
+import AuthProvider from 'store/providers/AuthProvider';
+
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <AppRoutes />
+      <AuthProvider>
+        <AppRoutes />
+      </AuthProvider>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root'),

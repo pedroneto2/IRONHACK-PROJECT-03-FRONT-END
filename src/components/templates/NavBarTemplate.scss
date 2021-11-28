@@ -4,8 +4,31 @@
     color: black;
   }
 
-  img {
+  button {
+    border: none;
+    background-color: transparent;
+  }
+
+  #logo {
     transform: translateY(14px);
     width: 123px;
+  }
+
+  .links-container {
+    img {
+      border-radius: 50%;
+      width: 50px;
+      margin-top: 25px;
+    }
+
+    p {
+      margin-left: 10px;
+    }
+  }
+
+  .user-container {
+    div {
+      transform: translateY(14px);
+    }
   }
 }

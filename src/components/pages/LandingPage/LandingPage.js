@@ -1,7 +1,6 @@
 import 'components/pages/LandingPage/LandingPage.scss';
-import { Link } from 'react-router-dom';
-
 import logo from 'images/LOGO_1.png';
+import { Link } from 'react-router-dom';
 
 const LandingPage = () => (
   <div className="landing-page-container d-flex vh-100 justify-content-center align-items-center">
