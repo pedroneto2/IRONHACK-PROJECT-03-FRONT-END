@@ -30,7 +30,9 @@ const NavBarTemplate = ({ children, hide, user, Logout }) => {
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="links-container w-100 d-flex align-items-end justify-content-around">
               <Link to="/ranking">Ranking</Link>
-              <Link to="/#">Avaliar Empresas</Link>
+              <div className={`${user.profilePicture || 'd-none'}`}>
+                <Link to="/accessment">Avaliar Empresas</Link>
+              </div>
               <Link to="/#">Sobre</Link>
               <div className="user-container d-flex flex-column align-items-end">
                 <div className={`d-${user.firstName ? 'flex' : 'none'} align-items-end`}>
