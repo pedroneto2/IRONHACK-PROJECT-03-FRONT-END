@@ -7,11 +7,10 @@ import { login, retrieveUser } from 'api/api';
 const EMPTY_USER = { firstName: '', profilePicture: '' };
 
 const handleRetrieveUser = async (token, setUser) => {
-  const response = await retrieveUser(token);
+  const { data } = await retrieveUser(token);
   setUser({
-    firstName: response.data.localizedFirstName,
-    profilePicture:
-      response.data.profilePicture['displayImage~'].elements['0'].identifiers['0'].identifier,
+    firstName: data.firstName,
+    profilePicture: data.profilePicture,
   });
 };
 
