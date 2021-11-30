@@ -12,10 +12,10 @@ const handleLog = (user, navigate, Logout) => {
   }
 };
 
-const NavBarTemplate = ({ children, hide, user, Logout }) => {
+const NavBarTemplate = ({ children, hideNavBar, user, Logout }) => {
   const navigate = useNavigate();
 
-  return hide ? (
+  return hideNavBar ? (
     children
   ) : (
     <div className="template-container">
@@ -31,7 +31,7 @@ const NavBarTemplate = ({ children, hide, user, Logout }) => {
             <Nav className="links-container w-100 d-flex align-items-end justify-content-around">
               <Link to="/ranking">Ranking</Link>
               <div className={`${user.profilePicture || 'd-none'}`}>
-                <Link to="/accessment">Avaliar Empresas</Link>
+                <Link to="/assessment">Avaliar Empresas</Link>
               </div>
               <Link to="/#">Sobre</Link>
               <div className="user-container d-flex flex-column align-items-end">

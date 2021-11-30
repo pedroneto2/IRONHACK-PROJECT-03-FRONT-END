@@ -42,6 +42,7 @@ const useAuth = () => {
   };
 
   useEffect(async () => {
+    setLoading(true);
     const token = localStorage.getItem('token');
     if (!token) {
       setLoading(false);

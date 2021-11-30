@@ -5,7 +5,7 @@ import AuthContext from 'store/contexts/AuthContext';
 
 import NavBarTemplate from 'components/templates/NavBarTemplate';
 
-const HandleRoute = ({ isPrivate, hide }) => {
+const HandleRoute = ({ isPrivate, hideNavBar }) => {
   const { user, loading, Logout } = useContext(AuthContext);
   const { pathname } = useLocation();
 
@@ -16,7 +16,7 @@ const HandleRoute = ({ isPrivate, hide }) => {
   if (user.firstName && pathname === '/login') return <Navigate to="/ranking" replace />;
 
   return (
-    <NavBarTemplate hide={hide} user={user} Logout={Logout}>
+    <NavBarTemplate hideNavBar={hideNavBar} user={user} Logout={Logout}>
       <Outlet />
     </NavBarTemplate>
   );

@@ -4,10 +4,11 @@ import AuthContext from 'store/contexts/AuthContext';
 
 import LoadingPage from 'components/pages/LoadingPage/LoadingPage';
 
-const authenticate = (search) => {
+const retrieveSearchParams = (search) => {
   const searchParams = new URLSearchParams(search);
   const code = searchParams.get('code');
-  return code;
+  const state = searchParams.get('state');
+  return { code, state };
 };
 
 const HandleLogin = () => {
@@ -16,8 +17,9 @@ const HandleLogin = () => {
   const { search } = useLocation();
 
   useEffect(async () => {
-    const code = authenticate(search);
-    if (code) await Login(code);
+    // STATE RECEIVED MUST BE EQUALS STATE SENT. THIS IS A SECURE STEP IN ORDER TO AVOID FAKE CALLS
+    const { code, state } = retrieveSearchParams(search);
+    if (code && state === process.env.REACT_APP_STATE) await Login(code);
   }, []);
   return loading ? <LoadingPage /> : <Navigate to="/ranking" replace />;
 };
