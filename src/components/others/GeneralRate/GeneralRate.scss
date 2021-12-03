@@ -1,0 +1,22 @@
+@media (min-width: 768px) {
+  .general-rate-container > i {
+    font-size: 68px;
+    margin-left: 25px;
+  }
+}
+
+@media (max-width: 768px) {
+  .general-rate-container > i {
+    font-size: 38px;
+
+    margin-left: 15px;
+  }
+}
+
+.general-rate-container {
+  width: fit-content;
+
+  i {
+    color: rgb(200, 0, 0);
+  }
+}

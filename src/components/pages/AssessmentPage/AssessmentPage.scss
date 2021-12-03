@@ -1,0 +1,68 @@
+.assessment-page-container {
+  #anonymous-check {
+    border: 3px solid black;
+    &:checked {
+      background-color: black !important;
+    }
+  }
+  .comment-field {
+    font-size: 20px;
+  }
+
+  .form-button {
+    display: block;
+    margin: 100px auto;
+    width: 250px;
+    height: 60px;
+    &:hover {
+      color: white;
+      background-color: black;
+    }
+  }
+  .separator {
+    width: 100%;
+    height: 1px;
+    background-color: #ced4da;
+  }
+
+  .general-grade-container {
+    background-color: #ebecec;
+    padding: 20px 0 50px 0;
+  }
+}
+
+@media (min-width: 768px) {
+  .assessment-page-container {
+    #anonymous-check {
+      font-size: 40px;
+    }
+
+    .form-check-label {
+      font-size: 40px;
+    }
+
+    .comment-field {
+      &::placeholder {
+        font-size: 30px;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .assessment-page-container {
+    #anonymous-check {
+      font-size: 25px;
+    }
+
+    .form-check-label {
+      font-size: 25px;
+    }
+
+    .comment-field {
+      &::placeholder {
+        font-size: 20px;
+      }
+    }
+  }
+}

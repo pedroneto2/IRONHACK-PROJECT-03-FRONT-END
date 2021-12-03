@@ -1,0 +1,57 @@
+@media (min-width: 768px) {
+  .star-rating {
+    width: fit-content;
+    margin-top: 25px;
+
+    .star {
+      font-size: 30px;
+    }
+
+    .transparent-star {
+      &::after {
+        left: 15px;
+        bottom: 8px;
+        font-size: 20px;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .star-rating {
+    width: 100vw;
+    margin-top: 15px;
+
+    .star {
+      font-size: 20px;
+    }
+
+    .transparent-star {
+      &::after {
+        left: 12px;
+        bottom: 5px;
+        font-size: 13px;
+      }
+    }
+  }
+}
+
+.star-rating {
+  .transparent-star {
+    color: black !important;
+    position: relative;
+    &::after {
+      content: '0';
+      color: white;
+      position: absolute;
+    }
+  }
+
+  .star {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: rgb(197, 0, 0);
+  }
+}

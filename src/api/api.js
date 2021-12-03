@@ -15,3 +15,16 @@ export const retrieveUser = async (token) => {
   const response = api.get('/retrieveUser', setHeader(token));
   return response;
 };
+
+export const retrieveCompaniesNames = async (search = '') => {
+  const response = api.get(`/companies/getName?name=${search}`);
+  return response;
+};
+
+export const createAssessment = async (assessmentForm, token) => {
+  await api.post(
+    'http://localhost:5000/assessments/createAssessment',
+    assessmentForm,
+    setHeader(token),
+  );
+};

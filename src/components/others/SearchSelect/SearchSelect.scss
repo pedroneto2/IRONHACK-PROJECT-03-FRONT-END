@@ -1,0 +1,28 @@
+.form-companies-options-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-color: #ced4da;
+  border-style: solid;
+  border-width: 0 1px 1px 1px;
+  border-radius: 0.25rem;
+  height: fit-content;
+  max-height: 220px;
+  overflow-y: scroll;
+  padding-top: 5px;
+  margin-top: 5px;
+
+  .form-company-option {
+    height: 48px;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    font-size: 20px;
+
+    &:hover {
+      background: rgb(189, 189, 189);
+      color: white;
+      cursor: pointer;
+    }
+  }
+}

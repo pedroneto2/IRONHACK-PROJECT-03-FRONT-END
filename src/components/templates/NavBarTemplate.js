@@ -39,7 +39,11 @@ const NavBarTemplate = ({ children, hideNavBar, user, Logout }) => {
                   <img src={user.profilePicture} alt="profile" />
                   <p>{`Olá ${user.firstName}!`}</p>
                 </div>
-                <button type="button" onClick={() => handleLog(user, navigate, Logout)}>
+                <button
+                  className="log-in-out-button"
+                  type="button"
+                  onClick={() => handleLog(user, navigate, Logout)}
+                >
                   {user.profilePicture ? 'Log out' : 'Log in'}
                 </button>
               </div>
