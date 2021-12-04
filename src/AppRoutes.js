@@ -13,8 +13,8 @@ import DetailPage from 'components/pages/DetailPage/DetailPage';
 const AppRoutes = () => (
   <Routes>
     <Route path="/" element={<LandingPage />} />
-    <Route path="/ranking/:companyID" element={<HandleRoute />}>
-      <Route path="/ranking/:companyID" element={<DetailPage />} />
+    <Route path="/ranking/:companyId" element={<HandleRoute />}>
+      <Route path="/ranking/:companyId" element={<DetailPage />} />
     </Route>
     <Route path="/ranking" element={<HandleRoute />}>
       <Route path="/ranking" element={<RankingPage />} />

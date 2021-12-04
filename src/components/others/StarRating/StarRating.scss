@@ -40,6 +40,7 @@
   .transparent-star {
     color: black !important;
     position: relative;
+
     &::after {
       content: '0';
       color: white;
