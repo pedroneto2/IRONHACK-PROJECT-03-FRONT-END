@@ -27,7 +27,7 @@ const CompanyAssessment = (props) => {
       <div className="show-user-container d-flex align-items-center justify-content-end">
         <div className="d-flex flex-column justify-content-center align-items-end">
           <h4>{`avaliação por: ${props.isAnonymous ? 'Anônimo' : props.user.firstName}`}</h4>
-          <p>{props.isAnonymous ? '' : props.user.emailAdress}</p>
+          <p>{props.isAnonymous ? '' : props.user.emailAddress}</p>
         </div>
         <img src={props.isAnonymous ? anonymousUser : props.user.profilePicture} alt="user" />
       </div>
