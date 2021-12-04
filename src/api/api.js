@@ -16,15 +16,14 @@ export const retrieveUser = async (token) => {
   return response;
 };
 
-export const retriveCompanies = async (filterName, grade, token) => {
-  // eslint-disable-next-line no-unused-expressions
+export const retriveCompanies = async (filterName, grade) => {
   let uri = '';
   if (grade === '0') {
     uri = 'all';
   } else {
     uri = `grade${grade}`;
   }
-  const response = await api.get(`/companies/getAll/${uri}?name=${filterName}`, setHeader(token));
+  const response = await api.get(`/companies/getAll/${uri}?name=${filterName}`);
   return response;
 };
 

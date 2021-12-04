@@ -1,31 +1,25 @@
 @media (min-width: 768px) {
-  .star {
-    font-size: 30px;
-    color: goldenrod;
-    text-align: right;
+  .ranking-companies-view {
+    .ranking-average-container {
+      h4 {
+        font-size: 20px;
+        text-align: end;
+      }
+    }
+    .logo-container {
+      width: 200px;
+    }
   }
-
 }
 
 @media (max-width: 768px) {
-  .star {
-    font-size: 20px;
-    color: goldenrod;
-    text-align: center;
+  .ranking-companies-view {
+    .ranking-average-container {
+      min-width: 190px;
+      h4 {
+        font-size: 15px;
+        text-align: center;
+      }
+    }
   }
-
-}
-
-@media (min-width: 768px) {
-  .logo {
-    width: 200px;
-  }
-
-}
-
-@media (max-width: 768px) {
-  .logo {
-    width: 200px;
-  }
-
 }

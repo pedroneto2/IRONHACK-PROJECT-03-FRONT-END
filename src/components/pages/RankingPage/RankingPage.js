@@ -1,19 +1,19 @@
-import { Form, Col, Container } from 'react-bootstrap';
-import { useEffect, useState } from 'react';
-
 import 'components/pages/RankingPage/RankingPage.scss';
+import { Form, Col, Container, Spinner } from 'react-bootstrap';
+import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
-// eslint-disable-next-line import/named
-import { retriveCompanies } from '../../../api/api';
+import { retriveCompanies } from 'api/api';
 
-import CompaniesView from '../../others/CompaniesView/CompaniesView';
+import CompaniesView from 'components/others/CompaniesView/CompaniesView';
+import renderAlertMessage from 'components/others/Alert';
 
 const RankingPage = () => {
   const [searchName, setSearchName] = useState('');
   const [companies, setCompanies] = useState([]);
   const [grade, setGrade] = useState('0');
-
-  const token = localStorage.getItem('token');
+  const [alertMessage, setAlertMessage] = useState({ title: '', description: '', type: 'danger' });
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     setSearchName(e.target.value);
@@ -25,38 +25,34 @@ const RankingPage = () => {
 
   const getCompaniesByNameAndGrade = async () => {
     try {
-      const foundCompanies = await retriveCompanies(searchName, grade, token);
+      const foundCompanies = await retriveCompanies(searchName, grade);
       setCompanies(foundCompanies);
     } catch (error) {
-      console.log(error);
+      setAlertMessage({ title: 'ERRO', description: error.response.data.message, type: 'danger' });
     }
   };
 
-  useEffect(() => {
-    getCompaniesByNameAndGrade();
+  useEffect(async () => {
+    setLoading(true);
+    await getCompaniesByNameAndGrade();
+    setLoading(false);
   }, [searchName, grade]);
 
   return (
     <Container>
-      <Container className="ranking-page-container d-md-flex justify-content-center display-5 m-3">
+      {renderAlertMessage(alertMessage, setAlertMessage)}
+      <Container className="ranking-page-container d-md-flex justify-content-center display-5 my-5 text-center">
         <u className="text-center"> RANKING DAS EMPRESAS </u>
       </Container>
-      <Form.Group
-        className="p-4"
-        as={Col}
-        md="12"
-        controlId="login-from"
-      >
+      <Form.Group className="p-4" as={Col} md="12" controlId="login-from">
         <Form.Control
           type="text"
           placeholder="Pesquise empresas pelo nome..."
           value={searchName}
           onChange={handleChange}
         />
-        <Container className="d-flex flex-column flex-md-row justify-content-center align-items-center my-1">
-          <Container className="col-2 text-nowrap m-auto">
-            Filtrar por:
-          </Container>
+        <Container className="d-flex flex-column flex-md-row justify-content-center align-items-center my-1 p-0">
+          <p className="text-center text-nowrap my-auto me-2">Filtrar por:</p>
           <Form.Select onChange={handleFilter} aria-label="col-11 Default select example">
             <option value="0">Nota Geral</option>
             <option value="1">Compreensao do processo seletivo</option>
@@ -65,15 +61,23 @@ const RankingPage = () => {
             <option value="4">Genuidade e autenticidade do feedback</option>
             <option value="5">Potencial de aprendizagem com o feedback</option>
             <option value="6">Você indicaria esse proceso seletivo para alguém?</option>
-            <option value="7">Você faria novamente este ou outro processo seletivo dessa empresa?</option>
+            <option value="7">
+              Você faria novamente este ou outro processo seletivo dessa empresa?
+            </option>
           </Form.Select>
         </Container>
       </Form.Group>
-      {companies.data?.map((comp) => (
-        // eslint-disable-next-line no-underscore-dangle
-        <CompaniesView key={comp._id} company={comp} grade={grade} />
-      ))}
-
+      {loading ? (
+        <div className="d-flex justify-content-center my-5">
+          <Spinner animation="border" variant="dark" />
+        </div>
+      ) : (
+        companies.data?.map((comp) => (
+          <Link key={comp._id} to={comp._id}>
+            <CompaniesView company={comp} grade={grade} />
+          </Link>
+        ))
+      )}
     </Container>
   );
 };
