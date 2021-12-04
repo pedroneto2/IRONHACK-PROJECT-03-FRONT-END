@@ -1,0 +1,88 @@
+@media (min-width: 768px) {
+  .company-assessment-container {
+    width: 75vw;
+    margin: auto;
+
+    .show-user-container {
+      img {
+        width: 100px;
+        margin-left: 25px;
+      }
+    }
+
+    .detail-grade-container {
+      width: max-content;
+      min-width: 75%;
+      max-width: 100%;
+    }
+
+    .detail-general-grade-container {
+      h4 {
+        font-size: 30px;
+      }
+    }
+
+    .detail-comment-container {
+      background-color: #ced4da;
+
+      .detail-reply-container {
+        background-color: white;
+      }
+    }
+
+    .grade-description-text-container {
+      width: 270px;
+      h4 {
+        font-size: 25px;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .company-assessment-container {
+    width: 90vw;
+    margin: auto;
+
+    .show-user-container {
+      img {
+        width: 50px;
+        margin-left: 10px;
+      }
+    }
+
+    .detail-grade-container {
+      width: max-content;
+      min-width: 75%;
+      max-width: 100%;
+    }
+
+    .detail-general-grade-container {
+      h4 {
+        font-size: 20px;
+      }
+    }
+
+    .detail-comment-container {
+      background-color: #ced4da;
+
+      .detail-reply-container {
+        background-color: white;
+      }
+
+      h4 {
+        font-size: 15px;
+      }
+    }
+
+    .grade-description-text-container {
+      width: 150px;
+      h4 {
+        font-size: 15px;
+      }
+      p {
+        font-size: 10px;
+      }
+    }
+  }
+}

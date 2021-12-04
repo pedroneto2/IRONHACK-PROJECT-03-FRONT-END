@@ -8,10 +8,14 @@ import LandingPage from 'components/pages/LandingPage/LandingPage';
 import RankingPage from 'components/pages/RankingPage/RankingPage';
 import LoginPage from 'components/pages/LoginPage/LoginPage';
 import AssessmentPage from 'components/pages/AssessmentPage/AssessmentPage';
+import DetailPage from 'components/pages/DetailPage/DetailPage';
 
 const AppRoutes = () => (
   <Routes>
     <Route path="/" element={<LandingPage />} />
+    <Route path="/ranking/:companyID" element={<HandleRoute />}>
+      <Route path="/ranking/:companyID" element={<DetailPage />} />
+    </Route>
     <Route path="/ranking" element={<HandleRoute />}>
       <Route path="/ranking" element={<RankingPage />} />
     </Route>
