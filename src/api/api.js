@@ -33,6 +33,11 @@ export const retrieveCompaniesNames = async (search = '') => {
   return response;
 };
 
+export const retrieveAssessmentsById = async (companyId) => {
+  const response = api.get(`/companies/assessment/${companyId}`);
+  return response;
+};
+
 export const createAssessment = async (assessmentForm, token) => {
   await api.post(
     'http://localhost:5000/assessments/createAssessment',
