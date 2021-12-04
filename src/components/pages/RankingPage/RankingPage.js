@@ -3,10 +3,10 @@ import { useEffect, useState } from 'react';
 
 import 'components/pages/RankingPage/RankingPage.scss';
 
-// eslint-disable-next-line import/named
-import { retriveCompanies } from '../../../api/api';
+import { retriveCompanies } from 'api/api';
 
 import CompaniesView from '../../others/CompaniesView/CompaniesView';
+import ratingQuestion from './ratingQuestion';
 
 const RankingPage = () => {
   const [searchName, setSearchName] = useState('');
@@ -38,8 +38,8 @@ const RankingPage = () => {
 
   return (
     <Container>
-      <Container className="ranking-page-container d-md-flex justify-content-center display-5 m-3">
-        <u className="text-center"> RANKING DAS EMPRESAS </u>
+      <Container className="ranking-page-container d-md-flex justify-content-center display-5 my-5">
+        <h2 className="border-3 border-bottom border-dark w-75 text-center">RANKING DAS EMPRESAS</h2>
       </Container>
       <Form.Group
         className="p-4"
@@ -58,22 +58,15 @@ const RankingPage = () => {
             Filtrar por:
           </Container>
           <Form.Select onChange={handleFilter} aria-label="col-11 Default select example">
-            <option value="0">Nota Geral</option>
-            <option value="1">Compreensao do processo seletivo</option>
-            <option value="2">Valorização do candidato</option>
-            <option value="3">Tempo de resposta do feedbback</option>
-            <option value="4">Genuidade e autenticidade do feedback</option>
-            <option value="5">Potencial de aprendizagem com o feedback</option>
-            <option value="6">Você indicaria esse proceso seletivo para alguém?</option>
-            <option value="7">Você faria novamente este ou outro processo seletivo dessa empresa?</option>
+            {ratingQuestion.map((question, index) => (
+              <option value={index.toString()}>{question}</option>
+            ))}
           </Form.Select>
         </Container>
       </Form.Group>
       {companies.data?.map((comp) => (
-        // eslint-disable-next-line no-underscore-dangle
         <CompaniesView key={comp._id} company={comp} grade={grade} />
       ))}
-
     </Container>
   );
 };
