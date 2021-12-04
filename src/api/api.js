@@ -27,3 +27,16 @@ export const retriveCompanies = async (filterName, grade, token) => {
   const response = await api.get(`/companies/getAll/${uri}?name=${filterName}`, setHeader(token));
   return response;
 };
+
+export const retrieveCompaniesNames = async (search = '') => {
+  const response = api.get(`/companies/getName?name=${search}`);
+  return response;
+};
+
+export const createAssessment = async (assessmentForm, token) => {
+  await api.post(
+    'http://localhost:5000/assessments/createAssessment',
+    assessmentForm,
+    setHeader(token),
+  );
+};
