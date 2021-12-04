@@ -8,11 +8,12 @@ import { useEffect, useState } from 'react';
 import { retrieveCompaniesNames, createAssessment } from 'api/api';
 
 import StarRating from 'components/others/StarRating/StarRating';
-import GeneralRate from 'components/others/GeneralRate/GeneralRate';
+import FiveStarRate from 'components/others/FiveStarRate/FiveStarRate';
 import SearchSelect from 'components/others/SearchSelect/SearchSelect';
 import renderAlertMessage from 'components/others/Alert';
+import calcRateAverage from 'components/others/calcRateAverage';
 
-import AssessmentsQuestions from './AssessmentsQuestions';
+import AssessmentsQuestions from 'components/others/AssessmentsQuestions';
 
 const formSchema = yup.object().shape({
   isAnonymous: yup.boolean(),
@@ -138,9 +139,9 @@ const AssessmentPage = () => {
           ))}
 
           <div className="mt-5 border-2 border-bottom border-dark" />
-          <div className="general-grade-container">
+          <div className="general-grade-container d-flex flex-column align-items-center">
             <h3 className="mt-5 text-center">NOTA GERAL</h3>
-            <GeneralRate values={values} />
+            <FiveStarRate grade={calcRateAverage(values)} />
           </div>
           <Form.Group className="d-flex flex-column align-items-center text-center my-5">
             <Form.Check

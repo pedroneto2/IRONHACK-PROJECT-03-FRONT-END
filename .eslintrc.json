@@ -13,6 +13,8 @@
   },
   "plugins": ["react"],
   "rules": {
+    "no-param-reassign": "off",
+    "react/destructuring-assignment": "off",
     "consistent-return": "off",
     "react/jsx-no-constructed-context-values": "off",
     "camelcase": "off",

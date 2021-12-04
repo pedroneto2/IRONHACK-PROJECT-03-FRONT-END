@@ -28,7 +28,11 @@ const NavBarTemplate = ({ children, hideNavBar, user, Logout }) => {
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="links-container w-100 d-flex align-items-end justify-content-around">
+            <Nav
+              className={`links-container w-100 d-flex align-items-end justify-content-around ${
+                user.firstName && 'mb-2'
+              }`}
+            >
               <Link to="/ranking">Ranking</Link>
               <div className={`${user.profilePicture || 'd-none'}`}>
                 <Link to="/assessment">Avaliar Empresas</Link>

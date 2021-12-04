@@ -1,0 +1,32 @@
+@media (min-width: 768px) {
+  .detail-page-container {
+    .show-company-container {
+      width: 75vw;
+      margin: 0 auto;
+
+      img {
+        width: 300px;
+        margin-right: 25px;
+      }
+
+      h4 {
+        font-size: 38px;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .detail-page-container {
+    .show-company-container {
+      img {
+        width: 125px;
+        margin-right: 5px;
+      }
+
+      h4 {
+        font-size: 15px;
+      }
+    }
+  }
+}
