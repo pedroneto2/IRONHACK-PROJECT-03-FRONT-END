@@ -9,6 +9,10 @@
     .logo-container {
       width: 200px;
     }
+
+    .see-detail-companies-container {
+      font-size: 15px;
+    }
   }
 }
 
@@ -20,6 +24,11 @@
         font-size: 15px;
         text-align: center;
       }
+    }
+
+    .see-detail-companies-container {
+      font-size: 12px;
+      transform: translateY(-10px);
     }
   }
 }

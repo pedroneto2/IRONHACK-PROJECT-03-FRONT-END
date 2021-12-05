@@ -28,7 +28,12 @@ const RankingPage = () => {
       const foundCompanies = await retriveCompanies(searchName, grade);
       setCompanies(foundCompanies);
     } catch (error) {
-      setAlertMessage({ title: 'ERRO', description: error.response.data.message, type: 'danger' });
+      const errorMessage = error.response ? error.response.data.message : 'servidor offline';
+      setAlertMessage({
+        title: 'ERRO',
+        description: errorMessage,
+        type: 'danger',
+      });
     }
   };
 

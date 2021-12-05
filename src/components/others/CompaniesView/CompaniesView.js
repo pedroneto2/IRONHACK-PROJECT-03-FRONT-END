@@ -28,7 +28,13 @@ const CompaniesView = ({ company, grade = 0 }) => (
       <Col className="m-auto">
         <Card border="light">
           <Card.Body>
-            <Card.Title className="m-auto p-0">{company.name}</Card.Title>
+            <Card.Title className="m-auto p-0 d-flex justify-content-between">
+              <h4 className="pt-3">{company.name}</h4>
+              <div className="see-detail-companies-container d-flex">
+                <p>ver detalhes</p>
+                <i className="bi bi-arrow-right-short" />
+              </div>
+            </Card.Title>
             <hr />
             <Card.Title>
               <Container className="ranking-average-container d-flex flex-column justify-content-end flex-md-row align-items-center flex-wrap">

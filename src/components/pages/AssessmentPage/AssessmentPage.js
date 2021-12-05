@@ -73,9 +73,10 @@ const AssessmentPage = () => {
         window.scrollTo(0, 0);
         setStatus(false);
       } catch (error) {
+        const errorMessage = error.response ? error.response.data.message : 'servidor offline';
         setAlertMessage({
           title: 'Erro ao enviar o formulário!',
-          description: error.response.data.message,
+          description: errorMessage,
           type: 'danger',
         });
         window.scrollTo(0, 0);
@@ -92,9 +93,10 @@ const AssessmentPage = () => {
       setCompaniesNames(companiesList);
       setLoadingCompanies(false);
     } catch (error) {
+      const errorMessage = error.response ? error.response.data.message : 'servidor offline';
       setAlertMessage({
         title: 'Erro ao conectar com o servidor!',
-        description: error.response.data.message,
+        description: errorMessage,
         type: 'danger',
       });
       window.scrollTo(0, 0);

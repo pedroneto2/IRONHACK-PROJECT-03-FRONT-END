@@ -19,21 +19,27 @@ const DetailPage = () => {
 
   const assessmentById = async (id) => {
     try {
+      setLoading(true);
       const { data } = await retrieveAssessmentsById(id);
       setAssessments(data);
+      setLoading(false);
     } catch (error) {
-      setAlertMessage({ title: 'ERRO', description: error.response.data.message, type: 'danger' });
+      const errorMessage = error.response ? error.response.data.message : 'servidor offline';
+      setAlertMessage({
+        title: 'ERRO',
+        description: errorMessage,
+        type: 'danger',
+      });
     }
   };
 
   useEffect(async () => {
-    setLoading(true);
     await assessmentById(companyId);
-    setLoading(!!alert.description);
   }, [companyId]);
 
   return loading ? (
     <div className="d-flex justify-content-center align-items-center my-5">
+      {renderAlertMessage(alertMessage, setAlertMessage, '/ranking')}
       {alertMessage.description ? '' : <Spinner animation="border" variant="dark" />}
     </div>
   ) : (
