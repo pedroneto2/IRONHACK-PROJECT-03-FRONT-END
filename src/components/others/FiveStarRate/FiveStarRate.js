@@ -4,10 +4,10 @@ const renderStars = (grade) => {
   const fiveStars = [1, 2, 3, 4, 5];
   return fiveStars.map((star, index) => {
     if (index + 1 - grade / 2 <= 0.25) {
-      return <i key={star} className="bi bi-star-fill" />;
+      return <i key={star} className="bi bi-star-fill" data-testid="filled star" />;
     }
     if (index + 1 - grade / 2 > 0.25 && index + 1 - grade / 2 <= 0.75) {
-      return <i key={star} className="bi bi-star-half" />;
+      return <i key={star} className="bi bi-star-half" data-testid="half-filled star" />;
     }
     return <i key={star} className="bi bi-star" />;
   });

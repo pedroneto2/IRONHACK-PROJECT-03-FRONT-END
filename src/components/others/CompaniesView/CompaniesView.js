@@ -4,22 +4,17 @@ import noCompanyLogo from 'images/noCompany.png';
 
 import FiveStarRate from 'components/others/FiveStarRate/FiveStarRate';
 
-const grades = [
-  'Nota Geral:',
-  'Compreensao do processo seletivo:',
-  'Valorização do candidato:',
-  'Tempo de resposta do feedbback:',
-  'Genuidade e autenticidade do feedback:',
-  'Potencial de aprendizagem com o feedback:',
-  'Você indicaria esse proceso seletivo para alguém?',
-  'Você faria novamente este ou outro processo seletivo dessa empresa?',
-];
+import grades from 'components/pages/RankingPage/ratingQuestion';
 
 const CompaniesView = ({ company, grade = 0 }) => (
-  <div className="ranking-companies-view alert alert-secondary m-2 justify-content-center my-5">
+  <div
+    data-testid="company view"
+    className="ranking-companies-view alert alert-secondary m-2 justify-content-center my-5"
+  >
     <Row className="d-flex flex-row justify-content-center ">
       <Col md={2} className="logo-container d-flex justify-content-center mb-5 mb-md-0">
         <img
+          aria-label="image test"
           className="m-auto p-auto align-middle img-thumbnail"
           alt="company"
           src={company.companyLogo ? company.companyLogo : noCompanyLogo}
@@ -29,7 +24,9 @@ const CompaniesView = ({ company, grade = 0 }) => (
         <Card border="light">
           <Card.Body>
             <Card.Title className="m-auto p-0 d-flex justify-content-between">
-              <h4 className="pt-3">{company.name}</h4>
+              <h4 className="pt-3" aria-label="company name">
+                {company.name}
+              </h4>
               <div className="see-detail-companies-container d-flex">
                 <p>ver detalhes</p>
                 <i className="bi bi-arrow-right-short" />
