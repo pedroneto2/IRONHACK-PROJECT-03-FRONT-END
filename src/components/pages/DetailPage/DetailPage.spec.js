@@ -1,5 +1,4 @@
 /* eslint-disable no-undef */
-/* eslint-disable no-unused-vars */
 import { render, screen, within } from '@testing-library/react';
 import DetailPage from 'components/pages/DetailPage/DetailPage';
 import { retrieveAssessmentsById } from 'api/api';
