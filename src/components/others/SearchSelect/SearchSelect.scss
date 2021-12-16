@@ -13,7 +13,7 @@
   margin-top: 5px;
 
   .form-company-option {
-    height: 48px;
+    // height: 48px;
     display: flex;
     align-items: center;
     padding-left: 10px;
@@ -23,6 +23,10 @@
       background: rgb(189, 189, 189);
       color: white;
       cursor: pointer;
+    }
+
+    .logo-company {
+      height: 100px;
     }
   }
 }

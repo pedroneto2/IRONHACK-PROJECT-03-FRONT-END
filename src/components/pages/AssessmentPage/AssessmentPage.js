@@ -5,7 +5,7 @@ import { useFormik } from 'formik';
 import * as yup from 'yup';
 import { useEffect, useState } from 'react';
 
-import { retrieveCompaniesNames, createAssessment } from 'api/api';
+import { retrieveCompaniesNames, createAssessment, retrieveCompaniesNamesApiLogo } from 'api/api';
 
 import StarRating from 'components/others/StarRating/StarRating';
 import FiveStarRate from 'components/others/FiveStarRate/FiveStarRate';
@@ -42,7 +42,7 @@ const INITIAL_VALUE = {
 };
 
 const AssessmentPage = () => {
-  const [companiesNames, setCompaniesNames] = useState([]);
+  const [companies, setCompanies] = useState([]);
   const [loadingCompanies, setLoadingCompanies] = useState(false);
   const [alertMessage, setAlertMessage] = useState({ title: '', description: '', type: 'danger' });
 
@@ -89,9 +89,20 @@ const AssessmentPage = () => {
     setLoadingCompanies(true);
     try {
       const response = await retrieveCompaniesNames(values.company);
-      const companiesList = response.data.map((companyObject) => companyObject.name);
-      setCompaniesNames(companiesList);
-      setLoadingCompanies(false);
+      const companiesList = response.data.map((companyObject) => (
+        { name: companyObject.name, logo: companyObject.logo }
+      ));
+      if (companiesList.length === 0) {
+        const responseApiLogo = await retrieveCompaniesNamesApiLogo(values.company);
+        const companiesListApiLogo = responseApiLogo.data.map((companyObject) => (
+          { name: companyObject.name, logo: companyObject.logo }
+        ));
+        setCompanies(companiesListApiLogo);
+        setLoadingCompanies(false);
+      } else {
+        setCompanies(companiesList);
+        setLoadingCompanies(false);
+      }
     } catch (error) {
       const errorMessage = error.response ? error.response.data.message : 'servidor offline';
       setAlertMessage({
@@ -117,7 +128,7 @@ const AssessmentPage = () => {
             touched={touched}
             errors={errors}
             loadingCompanies={loadingCompanies}
-            companiesNames={companiesNames}
+            companies={companies}
             handleChange={handleChange}
             handleBlur={handleBlur}
             setFieldValue={setFieldValue}
