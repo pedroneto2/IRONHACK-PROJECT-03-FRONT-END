@@ -69,7 +69,7 @@ const UserAssessments = () => {
   ) : (
     <div className="user-assessments-container">
       {renderAlertMessage(alertMessage, setAlertMessage)}
-      <div className="search-containere">
+      <div className="search-container">
         <Form.Control
           type="text"
           placeholder="Pesquise empresas pelo nome..."
