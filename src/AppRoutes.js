@@ -9,6 +9,7 @@ import RankingPage from 'components/pages/RankingPage/RankingPage';
 import LoginPage from 'components/pages/LoginPage/LoginPage';
 import AssessmentPage from 'components/pages/AssessmentPage/AssessmentPage';
 import DetailPage from 'components/pages/DetailPage/DetailPage';
+import UserAssessments from 'components/pages/UserAssessments/UserAssessments';
 
 const AppRoutes = () => (
   <Routes>
@@ -21,6 +22,9 @@ const AppRoutes = () => (
     </Route>
     <Route path="/assessment" element={<HandleRoute isPrivate />}>
       <Route path="/assessment" element={<AssessmentPage />} />
+    </Route>
+    <Route path="/my-assessments" element={<HandleRoute isPrivate />}>
+      <Route path="/my-assessments" element={<UserAssessments />} />
     </Route>
     <Route path="/login" element={<HandleRoute hideNavBar />}>
       <Route path="/login" element={<LoginPage />} />

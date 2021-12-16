@@ -25,20 +25,25 @@ const CompanyAssessment = (props) => {
   return (
     <div
       data-testid="assessment container"
-      className="company-assessment-container border border-3 border-dark p-1 p-md-5 my-5"
+      className="company-assessment-container border border-3 border-dark p-1 p-md-5"
     >
-      <div className="show-user-container d-flex align-items-center justify-content-end">
+      <div className={`show-user-company-container d-flex align-items-center justify-content-end ${props.company && 'd-none'}`}>
         <div className="d-flex flex-column justify-content-center align-items-end">
-          <h4 aria-label="user name">{`avaliação por: ${props.isAnonymous ? 'Anônimo' : props.user.firstName}`}</h4>
-          <p data-testid="user email">{props.isAnonymous ? '' : props.user.emailAddress}</p>
+          <h4 aria-label="user-company name">{`avaliação por: ${props.isAnonymous ? 'Anônimo' : props.user.firstName}`}</h4>
+          <p data-testid="user-company email">
+            {props.isAnonymous || !props.user.firstName ? '' : props.user.emailAddress}
+          </p>
         </div>
-        <img src={props.isAnonymous ? anonymousUser : props.user.profilePicture} alt="user" />
+        <img className="ms-2" src={props.isAnonymous ? anonymousUser : props.user.profilePicture} alt="user" />
       </div>
-      <div className="separator border-3 border-bottom border-dark mx-auto my-1" />
+      <div className={`separator border-3 border-bottom border-dark mx-auto my-1 ${props.company && 'd-none'}`} />
       <div className="show-rate-container d-flex flex-column align-items-center">
         {AssessmentsQuestions.map((question, index) => (
           <div key={question.grade} className="detail-grade-container">
-            <div data-testid="grade container" className="grade-description-container d-flex align-items-center justify-content-between my-5">
+            <div
+              data-testid="grade container"
+              className="grade-description-container d-flex align-items-center justify-content-between my-5"
+            >
               <div className="grade-description-text-container">
                 <h4>{question.question}</h4>
                 <p>{question.description}</p>

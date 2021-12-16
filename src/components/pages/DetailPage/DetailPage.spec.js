@@ -29,8 +29,8 @@ describe('Testing DetailPage', () => {
     const assessments = await screen.findAllByTestId('assessment container');
     mockedAssessments.forEach((assessment, index) => {
       const assessmentNode = within(assessments[index]);
-      const userName = assessmentNode.queryByRole('heading', { level: 4, name: 'user name' });
-      const userEmail = assessmentNode.queryByTestId('user email');
+      const userName = assessmentNode.queryByRole('heading', { level: 4, name: 'user-company name' });
+      const userEmail = assessmentNode.queryByTestId('user-company email');
       expect(userName.textContent).toBe(
         `avaliação por: ${assessment.isAnonymous ? 'Anônimo' : assessment.user.firstName}`,
       );
