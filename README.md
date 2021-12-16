@@ -99,4 +99,9 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 
 ----------------------------------------------------------------
 
-#### PS: In order to run the app properly, a .ENV file must be added.
+#### PS: In order to run the app properly, a .ENV file must be added with the following variables:
+- REACT_APP_CLIENT_ID
+- REACT_APP_REDIRECT_URL
+- REACT_APP_STATE
+- REACT_APP_SCOPE
+- REACT_APP_API_BASE_URL
