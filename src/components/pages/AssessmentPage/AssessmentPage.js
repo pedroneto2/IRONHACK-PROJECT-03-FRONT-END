@@ -56,6 +56,7 @@ const AssessmentPage = () => {
     setFieldValue,
     handleSubmit,
     setStatus,
+    setValues,
   } = useFormik({
     initialStatus: false,
     initialValues: INITIAL_VALUE,
@@ -132,6 +133,7 @@ const AssessmentPage = () => {
             handleChange={handleChange}
             handleBlur={handleBlur}
             setFieldValue={setFieldValue}
+            setValues={setValues}
           />
           <div className="mt-5 border-2 border-bottom border-dark" />
           {AssessmentsQuestions.map((question, index) => (

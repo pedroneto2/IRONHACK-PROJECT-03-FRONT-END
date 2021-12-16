@@ -45,9 +45,15 @@ export const retrieveAssessmentsById = async (companyId) => {
 };
 
 export const createAssessment = async (assessmentForm, token) => {
-  await api.post(
-    'http://localhost:5000/assessments/createAssessment',
-    assessmentForm,
-    setHeader(token),
-  );
+  await api.post('/assessments/createAssessment', assessmentForm, setHeader(token));
+};
+
+export const retrieveUserAssessments = async (token) => {
+  const response = await api.get('/user/assessments', setHeader(token));
+  return response;
+};
+
+export const deleteAssessmentById = async (assessmentID, token) => {
+  const response = await api.delete(`/user/assessment/${assessmentID}`, setHeader(token));
+  return response;
 };

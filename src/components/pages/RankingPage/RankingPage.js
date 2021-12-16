@@ -77,11 +77,16 @@ const RankingPage = () => {
           <Spinner animation="border" variant="dark" />
         </div>
       ) : (
-        companies.data?.map((comp) => (
-          <Link key={comp._id} to={comp._id}>
-            <CompaniesView company={comp} grade={grade} />
-          </Link>
-        ))
+        companies.data?.map((comp) => {
+          if (comp.average !== null) {
+            return (
+              <Link key={comp._id} to={comp._id}>
+                <CompaniesView company={comp} grade={grade} />
+              </Link>
+            );
+          }
+          return '';
+        })
       )}
     </Container>
   );

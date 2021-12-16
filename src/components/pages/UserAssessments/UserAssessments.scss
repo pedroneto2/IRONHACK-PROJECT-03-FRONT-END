@@ -1,0 +1,27 @@
+@media (min-width: 768px) {
+  .user-assessments-container {
+    margin: 50px auto;
+    width: 75%;
+    word-break: break-all;
+  }
+}
+
+@media (max-width: 768px) {
+  .user-assessments-container {
+    margin: 25px auto;
+    width: 95%;
+    word-break: break-all;
+  }
+}
+
+.user-assessments-container {
+  .accordion-body {
+    margin: 0;
+    padding: 0;
+
+    button {
+      width: 250px;
+      display: block;
+    }
+  }
+}

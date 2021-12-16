@@ -1,6 +1,6 @@
 // import axios from 'axios';
 import 'components/others/SearchSelect/SearchSelect.scss';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Container, Form, Spinner } from 'react-bootstrap';
 
 const renderCompaniesNames = (companies, setFieldValue) => {
@@ -36,12 +36,9 @@ const SearchSelect = ({
   handleChange,
   handleBlur,
   setFieldValue,
+  setValues,
 }) => {
   const [companyFieldActive, setCompanyFieldActive] = useState(false);
-
-  useEffect(() => {
-
-  }, []);
 
   return (
     <Form.Group className="mb-3" controlId="formBasicCompany">
@@ -52,7 +49,7 @@ const SearchSelect = ({
         name="company"
         placeholder="Procure pelo nome da empresa ou adicione uma nova"
         size="lg"
-        value={values.company.name}
+        value={values.company}
         onChange={handleChange}
         onBlur={(e) => {
           handleBlur(e);
@@ -70,7 +67,7 @@ const SearchSelect = ({
         {loadingCompanies ? (
           <Spinner className="mx-auto my-2" animation="border" variant="dark" />
         ) : (
-          renderCompaniesNames(companies, setFieldValue)
+          renderCompaniesNames(companies, setFieldValue, setValues)
         )}
       </div>
       <Form.Control.Feedback>Ok!</Form.Control.Feedback>

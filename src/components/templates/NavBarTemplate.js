@@ -37,7 +37,14 @@ const NavBarTemplate = ({ children, hideNavBar, user, Logout }) => {
               <div className={`${user.profilePicture || 'd-none'}`}>
                 <Link to="/assessment">Avaliar Empresas</Link>
               </div>
+<<<<<<< HEAD
               <Link to="/about">Sobre</Link>
+=======
+              <div className={`${user.profilePicture || 'd-none'}`}>
+                <Link to="/my-assessments">Minhas Avaliações</Link>
+              </div>
+              <Link to="/#">Sobre</Link>
+>>>>>>> 60dc477976ec340f5a55599ac582459effd7dd36
               <div className="user-container d-flex flex-column align-items-end">
                 <div className={`d-${user.firstName ? 'flex' : 'none'} align-items-end`}>
                   <img src={user.profilePicture} alt="profile" />

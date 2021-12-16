@@ -54,10 +54,9 @@ const DetailPage = () => {
         />
         <h4>{assessments[0].company.name}</h4>
       </div>
-      {assessments &&
-        assessments.map((assessment) => (
+      {assessments.map((assessment) => (
+        <div key={assessment.grade1} className="company-assessment-container mx-auto my-5">
           <CompanyAssessment
-            key={assessment.grade1}
             isAnonymous={assessment.isAnonymous}
             grade1={assessment.grade1}
             grade2={assessment.grade2}
@@ -72,7 +71,8 @@ const DetailPage = () => {
             reply={assessment.reply}
             updatedAt={assessment.updatedAt}
           />
-        ))}
+        </div>
+      ))}
     </div>
   );
 };
