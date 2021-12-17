@@ -12,7 +12,10 @@ const renderCompaniesNames = (companies, setFieldValue) => {
     <div
       key={company.logo}
       className="form-company-option"
-      onClick={() => setFieldValue('company', company.name, true)}
+      onClick={() => {
+        setFieldValue('company', company.name, true);
+        setFieldValue('companyLogo', company.logo, true);
+      }}
       aria-hidden="true"
     >
       <div className="d-flex flex-row">

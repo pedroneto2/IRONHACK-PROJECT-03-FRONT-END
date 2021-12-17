@@ -10,6 +10,7 @@ import LoginPage from 'components/pages/LoginPage/LoginPage';
 import AssessmentPage from 'components/pages/AssessmentPage/AssessmentPage';
 import DetailPage from 'components/pages/DetailPage/DetailPage';
 import UserAssessments from 'components/pages/UserAssessments/UserAssessments';
+import AboutPage from 'components/pages/AboutPage/AboutPage';
 
 const AppRoutes = () => (
   <Routes>

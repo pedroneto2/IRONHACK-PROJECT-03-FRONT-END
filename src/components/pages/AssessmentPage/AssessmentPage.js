@@ -26,6 +26,7 @@ const formSchema = yup.object().shape({
   grade7: yup.number().required().min(0).max(10),
   comment: yup.string().min(10).max(1000),
   company: yup.string().required().min(3).max(150),
+  companyLogo: yup.string().min(3).max(150),
 });
 
 const INITIAL_VALUE = {
@@ -39,6 +40,7 @@ const INITIAL_VALUE = {
   grade7: 5,
   comment: '',
   company: '',
+  companyLogo: '',
 };
 
 const AssessmentPage = () => {
@@ -93,17 +95,14 @@ const AssessmentPage = () => {
       const companiesList = response.data.map((companyObject) => (
         { name: companyObject.name, logo: companyObject.logo }
       ));
-      if (companiesList.length === 0) {
-        const responseApiLogo = await retrieveCompaniesNamesApiLogo(values.company);
-        const companiesListApiLogo = responseApiLogo.data.map((companyObject) => (
-          { name: companyObject.name, logo: companyObject.logo }
-        ));
-        setCompanies(companiesListApiLogo);
-        setLoadingCompanies(false);
-      } else {
-        setCompanies(companiesList);
-        setLoadingCompanies(false);
-      }
+      const responseApiLogo = await retrieveCompaniesNamesApiLogo(values.company);
+      console.log('111-->', companiesList);
+      companiesList.push(...responseApiLogo.data.map((companyObject) => (
+        { name: companyObject.name, logo: companyObject.logo }
+      )));
+      console.log('222-->', companiesList);
+      setCompanies(companiesList);
+      setLoadingCompanies(false);
     } catch (error) {
       const errorMessage = error.response ? error.response.data.message : 'servidor offline';
       setAlertMessage({

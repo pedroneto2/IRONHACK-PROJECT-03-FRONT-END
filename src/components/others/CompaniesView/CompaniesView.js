@@ -17,7 +17,7 @@ const CompaniesView = ({ company, grade = 0 }) => (
           aria-label="image test"
           className="m-auto p-auto align-middle img-thumbnail"
           alt="company"
-          src={company.companyLogo ? company.companyLogo : noCompanyLogo}
+          src={company.logo ? company.logo : noCompanyLogo}
         />
       </Col>
       <Col className="m-auto">

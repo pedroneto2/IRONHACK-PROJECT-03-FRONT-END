@@ -26,11 +26,12 @@ export const retriveCompanies = async (filterName, grade) => {
     uri = `grade${grade}`;
   }
   const response = await api.get(`/companies/getAll/${uri}?name=${filterName}`);
+  
   return response;
 };
 
 export const retrieveCompaniesNames = async (search = '') => {
-  const response = api.get(`/companies/getName?name=${search}`);
+  const response = await api.get(`/companies/getName?name=${search}`);
   return response;
 };
 
