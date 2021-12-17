@@ -1,4 +1,4 @@
-import { useContext, useEffect } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
 import AuthContext from 'store/contexts/AuthContext';
 
@@ -12,14 +12,18 @@ const retrieveSearchParams = (search) => {
 };
 
 const HandleLogin = () => {
-  const { loading, Login } = useContext(AuthContext);
+  const [loading, setLoading] = useState(true);
+  const { Login } = useContext(AuthContext);
 
   const { search } = useLocation();
 
   useEffect(async () => {
     // STATE RECEIVED MUST BE EQUALS STATE SENT. THIS IS A SECURE STEP IN ORDER TO AVOID FAKE CALLS
     const { code, state } = retrieveSearchParams(search);
-    if (code && state === process.env.REACT_APP_STATE) await Login(code);
+    if (code && state === process.env.REACT_APP_STATE) {
+      await Login(code);
+      setLoading(false);
+    }
   }, []);
   return loading ? <LoadingPage /> : <Navigate to="/ranking" replace />;
 };

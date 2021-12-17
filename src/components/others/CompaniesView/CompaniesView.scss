@@ -7,11 +7,23 @@
       }
     }
     .logo-container {
+      height: 200px;
       width: 200px;
+      img {
+        object-fit: contain;
+        height: 100%;
+        width: 100%;
+      }
     }
 
-    .see-detail-companies-container {
-      font-size: 15px;
+    .company-card-container {
+      position: relative;
+      .see-detail-companies-container {
+        position: absolute;
+        font-size: 15px;
+        right: 0;
+        transform: translateY(-10px);
+      }
     }
   }
 }
@@ -26,9 +38,23 @@
       }
     }
 
-    .see-detail-companies-container {
-      font-size: 12px;
-      transform: translateY(-10px);
+    .logo-container {
+      height: 100px;
+      img {
+        object-fit: contain;
+        height: 100%;
+        width: 100%;
+      }
+    }
+
+    .company-card-container {
+      position: relative;
+      .see-detail-companies-container {
+        position: absolute;
+        font-size: 12px;
+        right: 0;
+        transform: translateY(-10px);
+      }
     }
   }
 }

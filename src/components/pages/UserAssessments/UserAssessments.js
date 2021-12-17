@@ -56,8 +56,8 @@ const UserAssessments = () => {
   const [search, setSearch] = useState('');
   const [alertMessage, setAlertMessage] = useState({ title: '', description: '', type: 'danger' });
 
-  useEffect(() => {
-    retrieveAssessments(setAssessments, setAlertMessage);
+  useEffect(async () => {
+    await retrieveAssessments(setAssessments, setAlertMessage);
     setLoading(false);
   }, []);
 
@@ -87,11 +87,13 @@ const UserAssessments = () => {
                   <Accordion.Header>
                     <div className="company-name-image-container w-100 d-flex flex-column flex-md-row-reverse justify-content-end text-center text-md-start align-items-center">
                       <h3 className="my-2">{assessment.company.name}</h3>
-                      <img
-                        className="me-3"
-                        src={assessment.company.companyLogo || noCompany}
-                        alt="company"
-                      />
+                      <div className="image-container">
+                        <img
+                          className="me-3"
+                          src={assessment.company.companyLogo || noCompany}
+                          alt="company"
+                        />
+                      </div>
                     </div>
                   </Accordion.Header>
                   <Accordion.Body>

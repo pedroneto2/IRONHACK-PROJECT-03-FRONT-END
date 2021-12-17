@@ -4,8 +4,6 @@ const api = axios.create({
   baseURL: process.env.REACT_APP_API_BASE_URL,
 });
 
-const apiLogo = axios.create();
-
 const setHeader = (token) => ({ headers: { Authorization: `Bearer ${token}` } });
 
 export const login = async (code) => {
@@ -26,17 +24,14 @@ export const retriveCompanies = async (filterName, grade) => {
     uri = `grade${grade}`;
   }
   const response = await api.get(`/companies/getAll/${uri}?name=${filterName}`);
-  
-  return response;
-};
 
-export const retrieveCompaniesNames = async (search = '') => {
-  const response = await api.get(`/companies/getName?name=${search}`);
   return response;
 };
 
 export const retrieveCompaniesNamesApiLogo = async (search = '') => {
-  const response = apiLogo.get(`https://autocomplete.clearbit.com/v1/companies/suggest?query=:${search}`);
+  const response = axios.get(
+    `https://autocomplete.clearbit.com/v1/companies/suggest?query=:${search}`,
+  );
   return response;
 };
 

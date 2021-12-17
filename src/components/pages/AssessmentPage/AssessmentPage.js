@@ -58,7 +58,7 @@ const AssessmentPage = () => {
     setFieldValue,
     handleSubmit,
     setStatus,
-    setValues,
+    setErrors,
   } = useFormik({
     initialStatus: false,
     initialValues: INITIAL_VALUE,
@@ -91,17 +91,8 @@ const AssessmentPage = () => {
   useEffect(async () => {
     setLoadingCompanies(true);
     try {
-      const response = await retrieveCompaniesNames(values.company);
-      const companiesList = response.data.map((companyObject) => (
-        { name: companyObject.name, logo: companyObject.logo }
-      ));
-      const responseApiLogo = await retrieveCompaniesNamesApiLogo(values.company);
-      console.log('111-->', companiesList);
-      companiesList.push(...responseApiLogo.data.map((companyObject) => (
-        { name: companyObject.name, logo: companyObject.logo }
-      )));
-      console.log('222-->', companiesList);
-      setCompanies(companiesList);
+      const { data } = await retrieveCompaniesNamesApiLogo(values.company);
+      setCompanies(data);
       setLoadingCompanies(false);
     } catch (error) {
       const errorMessage = error.response ? error.response.data.message : 'servidor offline';
@@ -132,7 +123,7 @@ const AssessmentPage = () => {
             handleChange={handleChange}
             handleBlur={handleBlur}
             setFieldValue={setFieldValue}
-            setValues={setValues}
+            setErrors={setErrors}
           />
           <div className="mt-5 border-2 border-bottom border-dark" />
           {AssessmentsQuestions.map((question, index) => (

@@ -6,18 +6,22 @@
   border-style: solid;
   border-width: 0 1px 1px 1px;
   border-radius: 0.25rem;
-  height: fit-content;
-  max-height: 220px;
-  overflow-y: scroll;
+  max-height: 400px;
+  overflow: scroll;
   padding-top: 5px;
   margin-top: 5px;
 
   .form-company-option {
-    // height: 48px;
     display: flex;
     align-items: center;
     padding-left: 10px;
     font-size: 20px;
+    height: 75px;
+    margin: 5px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    overflow: scroll;
+    box-shadow: 1px 1px 2px 2px rgba(100, 100, 100, 0.25);
 
     &:hover {
       background: rgb(189, 189, 189);
@@ -25,8 +29,53 @@
       cursor: pointer;
     }
 
-    .logo-company {
-      height: 100px;
+    .search-company-info-container {
+      height: 100%;
+      .image-container {
+        display: flex;
+        justify-content: center;
+        img {
+          max-width: 100%;
+          max-height: 100%;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  #formBasicCompany::placeholder {
+    font-size: 18px;
+  }
+  .form-companies-options-container {
+    .form-company-option {
+      .search-company-info-container {
+        p {
+          margin-left: 5px;
+          font-size: 16px;
+        }
+        .image-container {
+          font-size: 12px;
+          height: 45px;
+          width: 50px;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .form-companies-options-container {
+    .form-company-option {
+      .search-company-info-container {
+        p {
+          margin-left: 15px;
+        }
+        .image-container {
+          height: 65px;
+          width: 100px;
+        }
+      }
     }
   }
 }

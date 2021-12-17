@@ -3,6 +3,23 @@
     margin: 50px auto;
     width: 75%;
     word-break: break-all;
+
+    .company-name-image-container {
+      h3 {
+        font-size: 20px;
+      }
+
+      .image-container {
+        height: 200px;
+        width: 200px;
+        margin-right: 10px;
+        img {
+          object-fit: contain;
+          height: 100%;
+          width: 100%;
+        }
+      }
+    }
   }
 }
 
@@ -11,6 +28,23 @@
     margin: 25px auto;
     width: 95%;
     word-break: break-all;
+
+    .company-name-image-container {
+      h3 {
+        font-size: 16px;
+      }
+
+      .image-container {
+        height: 100px;
+        width: 100px;
+        margin-right: 5px;
+        img {
+          object-fit: contain;
+          height: 100%;
+          width: 100%;
+        }
+      }
+    }
   }
 }
 

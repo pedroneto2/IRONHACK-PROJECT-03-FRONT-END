@@ -1,9 +1,10 @@
+/* eslint-disable no-unused-vars */
 // import axios from 'axios';
 import 'components/others/SearchSelect/SearchSelect.scss';
 import { useState } from 'react';
-import { Container, Form, Spinner } from 'react-bootstrap';
+import { Form, Spinner } from 'react-bootstrap';
 
-const renderCompaniesNames = (companies, setFieldValue) => {
+const renderCompaniesNames = (companies, setFieldValue, setValidValue) => {
   if (!companies.length) {
     return <div className="form-company-option"> No company found with this name!</div>;
   }
@@ -12,19 +13,18 @@ const renderCompaniesNames = (companies, setFieldValue) => {
     <div
       key={company.logo}
       className="form-company-option"
-      onClick={() => {
+      onMouseDown={() => {
         setFieldValue('company', company.name, true);
         setFieldValue('companyLogo', company.logo, true);
+        setValidValue(true);
       }}
       aria-hidden="true"
     >
-      <div className="d-flex flex-row">
-        <Container>
-          <img className="img-fluid  img-thumbnail" src={company.logo} alt="logo-company" />
-        </Container>
-        <Container>
-          {company.name}
-        </Container>
+      <div className="search-company-info-container d-flex flex-row align-items-center">
+        <div className="image-container">
+          <img src={company.logo} alt="company-logo" />
+        </div>
+        <p>{company.name}</p>
       </div>
     </div>
   ));
@@ -39,24 +39,29 @@ const SearchSelect = ({
   handleChange,
   handleBlur,
   setFieldValue,
-  setValues,
+  setErrors,
 }) => {
   const [companyFieldActive, setCompanyFieldActive] = useState(false);
+  const [validValue, setValidValue] = useState(false);
 
   return (
     <Form.Group className="mb-3" controlId="formBasicCompany">
       <h4 className="text-center">EMPRESA:</h4>
       <Form.Control
-        autocomplete="off"
         type="string"
         name="company"
-        placeholder="Procure pelo nome da empresa ou adicione uma nova"
+        placeholder="Procure pelo site da empresa"
         size="lg"
         value={values.company}
         onChange={handleChange}
         onBlur={(e) => {
           handleBlur(e);
-          setTimeout(() => setCompanyFieldActive(false), 100);
+          setCompanyFieldActive(false);
+          setValidValue(false);
+          if (!validValue) {
+            setFieldValue('company', '', true);
+            setErrors('Please, select a company from the list');
+          }
         }}
         onFocus={() => setCompanyFieldActive(true)}
         isValid={touched.company && !errors.company}
@@ -70,7 +75,7 @@ const SearchSelect = ({
         {loadingCompanies ? (
           <Spinner className="mx-auto my-2" animation="border" variant="dark" />
         ) : (
-          renderCompaniesNames(companies, setFieldValue, setValues)
+          renderCompaniesNames(companies, setFieldValue, setValidValue)
         )}
       </div>
       <Form.Control.Feedback>Ok!</Form.Control.Feedback>

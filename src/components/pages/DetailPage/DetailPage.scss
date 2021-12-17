@@ -4,13 +4,19 @@
       width: 75vw;
       margin: 0 auto;
 
-      img {
-        width: 300px;
+      .image-container {
+        width: 200px;
+        height: 200px;
         margin-right: 25px;
+        img {
+          object-fit: contain;
+          height: 100%;
+          width: 100%;
+        }
       }
 
       h4 {
-        font-size: 38px;
+        font-size: 28px;
       }
     }
 

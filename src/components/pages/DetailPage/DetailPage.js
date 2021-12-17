@@ -47,11 +47,15 @@ const DetailPage = () => {
       {renderAlertMessage(alertMessage, setAlertMessage)}
       <h3 className="title text-center mt-5">AVALIAÇÕES DA EMPRESA</h3>
       <div className="separator border-3 border-bottom border-dark w-75 mx-auto mb-5" />
-      <div className="show-company-container d-flex align-items-center justify-content-start mb-5">
-        <img
-          src={assessments[0].company.companyLogo ? assessments[0].company.companyLogo : noCompany}
-          alt="company"
-        />
+      <div className="show-company-container text-center mx-3 mx-md-auto d-flex flex-column-reverse flex-md-row align-items-center justify-content-start mb-5">
+        <div className="image-container">
+          <img
+            src={
+              assessments[0].company.companyLogo ? assessments[0].company.companyLogo : noCompany
+            }
+            alt="company"
+          />
+        </div>
         <h4>{assessments[0].company.name}</h4>
       </div>
       {assessments.map((assessment) => (

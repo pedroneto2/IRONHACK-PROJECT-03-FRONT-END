@@ -17,13 +17,13 @@ const CompaniesView = ({ company, grade = 0 }) => (
           aria-label="image test"
           className="m-auto p-auto align-middle img-thumbnail"
           alt="company"
-          src={company.logo ? company.logo : noCompanyLogo}
+          src={company.companyLogo ? company.companyLogo : noCompanyLogo}
         />
       </Col>
       <Col className="m-auto">
         <Card border="light">
           <Card.Body>
-            <Card.Title className="m-auto p-0 d-flex justify-content-between">
+            <Card.Title className="company-card-container m-auto p-0 d-flex justify-content-between">
               <h4 className="pt-3" aria-label="company name">
                 {company.name}
               </h4>
