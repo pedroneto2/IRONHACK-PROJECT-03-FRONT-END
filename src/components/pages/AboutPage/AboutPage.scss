@@ -1,3 +1,35 @@
-#label-filtro {
-  width: 208px;
+@media (min-width: 768px) {
+  .about-page-container {
+    width: 700px;
+
+    h2 {
+      font-size: 30px;
+    }
+
+    p {
+      font-size: 20px;
+    }
+
+    ul {
+      font-size: 20px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .about-page-container {
+    width: 350px;
+
+    h2 {
+      font-size: 20px;
+    }
+
+    p {
+      font-size: 16px;
+    }
+
+    ul {
+      font-size: 16px;
+    }
+  }
 }
