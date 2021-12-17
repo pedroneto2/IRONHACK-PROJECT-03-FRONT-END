@@ -14,6 +14,8 @@ This app was designed in order to provide a way of rating the feedbacks and sele
 
 **You can access the deployed site in this link: https://harvest-ironhack.netlify.app/**  :point_left: :point_left::point_left:
 
+The back-end API can be accessed in this link: https://ironhack-harvest-app.herokuapp.com/
+
 The companies rating can be freely accessed
 
 In order to rate any company you must log in in the site.
