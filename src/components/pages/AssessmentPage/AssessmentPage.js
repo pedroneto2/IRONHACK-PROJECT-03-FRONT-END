@@ -5,7 +5,7 @@ import { useFormik } from 'formik';
 import * as yup from 'yup';
 import { useEffect, useState } from 'react';
 
-import { retrieveCompaniesNames, createAssessment } from 'api/api';
+import { retrieveCompaniesNames, createAssessment, retrieveCompaniesNamesApiLogo } from 'api/api';
 
 import StarRating from 'components/others/StarRating/StarRating';
 import FiveStarRate from 'components/others/FiveStarRate/FiveStarRate';
@@ -26,6 +26,7 @@ const formSchema = yup.object().shape({
   grade7: yup.number().required().min(0).max(10),
   comment: yup.string().min(10).max(1000),
   company: yup.string().required().min(3).max(150),
+  companyLogo: yup.string().min(3).max(150),
 });
 
 const INITIAL_VALUE = {
@@ -39,10 +40,11 @@ const INITIAL_VALUE = {
   grade7: 5,
   comment: '',
   company: '',
+  companyLogo: '',
 };
 
 const AssessmentPage = () => {
-  const [companiesNames, setCompaniesNames] = useState([]);
+  const [companies, setCompanies] = useState([]);
   const [loadingCompanies, setLoadingCompanies] = useState(false);
   const [alertMessage, setAlertMessage] = useState({ title: '', description: '', type: 'danger' });
 
@@ -56,6 +58,7 @@ const AssessmentPage = () => {
     setFieldValue,
     handleSubmit,
     setStatus,
+    setValues,
   } = useFormik({
     initialStatus: false,
     initialValues: INITIAL_VALUE,
@@ -89,8 +92,16 @@ const AssessmentPage = () => {
     setLoadingCompanies(true);
     try {
       const response = await retrieveCompaniesNames(values.company);
-      const companiesList = response.data.map((companyObject) => companyObject.name);
-      setCompaniesNames(companiesList);
+      const companiesList = response.data.map((companyObject) => (
+        { name: companyObject.name, logo: companyObject.logo }
+      ));
+      const responseApiLogo = await retrieveCompaniesNamesApiLogo(values.company);
+      console.log('111-->', companiesList);
+      companiesList.push(...responseApiLogo.data.map((companyObject) => (
+        { name: companyObject.name, logo: companyObject.logo }
+      )));
+      console.log('222-->', companiesList);
+      setCompanies(companiesList);
       setLoadingCompanies(false);
     } catch (error) {
       const errorMessage = error.response ? error.response.data.message : 'servidor offline';
@@ -117,10 +128,11 @@ const AssessmentPage = () => {
             touched={touched}
             errors={errors}
             loadingCompanies={loadingCompanies}
-            companiesNames={companiesNames}
+            companies={companies}
             handleChange={handleChange}
             handleBlur={handleBlur}
             setFieldValue={setFieldValue}
+            setValues={setValues}
           />
           <div className="mt-5 border-2 border-bottom border-dark" />
           {AssessmentsQuestions.map((question, index) => (

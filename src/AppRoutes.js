@@ -10,6 +10,7 @@ import LoginPage from 'components/pages/LoginPage/LoginPage';
 import AssessmentPage from 'components/pages/AssessmentPage/AssessmentPage';
 import DetailPage from 'components/pages/DetailPage/DetailPage';
 import UserAssessments from 'components/pages/UserAssessments/UserAssessments';
+import AboutPage from 'components/pages/AboutPage/AboutPage';
 
 const AppRoutes = () => (
   <Routes>
@@ -19,6 +20,9 @@ const AppRoutes = () => (
     </Route>
     <Route path="/ranking" element={<HandleRoute />}>
       <Route path="/ranking" element={<RankingPage />} />
+    </Route>
+    <Route path="/about" element={<HandleRoute />}>
+      <Route path="/about" element={<AboutPage />} />
     </Route>
     <Route path="/assessment" element={<HandleRoute isPrivate />}>
       <Route path="/assessment" element={<AssessmentPage />} />
