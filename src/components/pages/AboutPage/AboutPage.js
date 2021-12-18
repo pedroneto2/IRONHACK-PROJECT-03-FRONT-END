@@ -1,8 +1,8 @@
 import 'components/pages/AboutPage/AboutPage.scss';
 
 const AboutPage = () => (
-  <div className="about-page-container mx-auto mt-4 mt-md-5">
-    <h2 className="my-3 text-center">
+  <div className="about-page-container mx-auto mt-4">
+    <h2 className="my-3 mb-4 text-center">
       A Harvest é uma plataforma que visa aproximar candidatos e empresas.
     </h2>
     <p>

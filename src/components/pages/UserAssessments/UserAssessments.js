@@ -81,7 +81,7 @@ const UserAssessments = () => {
         const regex = new RegExp(search, 'i');
         if (search === '' || regex.test(assessment.company.name)) {
           return (
-            <div key={assessment._id} className="my-5">
+            <div key={assessment._id} className="accordion-container my-5">
               <Accordion>
                 <Accordion.Item eventKey={index}>
                   <Accordion.Header>

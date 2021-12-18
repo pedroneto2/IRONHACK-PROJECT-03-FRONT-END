@@ -109,8 +109,8 @@ const AssessmentPage = () => {
   return (
     <div className="assessment-page-container">
       {renderAlertMessage(alertMessage, setAlertMessage)}
-      <div className="my-5 d-flex flex-column align-items-center">
-        <h2 className="border-3 border-bottom border-dark w-50 text-center">AVALIAR EMPRESAS</h2>
+      <div className="mb-4 mt-5 d-flex flex-column align-items-center">
+        <h2 className="border-3 fw-bold text-center">AVALIAR EMPRESAS</h2>
       </div>
       <div className="form-container w-75 mx-auto">
         <Form onSubmit={handleSubmit}>

@@ -46,10 +46,8 @@ const RankingPage = () => {
   return (
     <Container>
       {renderAlertMessage(alertMessage, setAlertMessage)}
-      <Container className="ranking-page-container d-md-flex justify-content-center display-5 my-5 text-center">
-        <h2 className="border-3 border-bottom border-dark w-50 text-center mx-auto">
-          RANKING DAS EMPRESAS
-        </h2>
+      <Container className="ranking-page-container d-md-flex justify-content-center display-5 mb-2 mt-5 text-center">
+        <h2 className="border-3 fw-bold text-center mx-auto">RANKING DAS EMPRESAS</h2>
       </Container>
       <Form.Group className="p-4" as={Col} md="12" controlId="login-from">
         <Form.Control

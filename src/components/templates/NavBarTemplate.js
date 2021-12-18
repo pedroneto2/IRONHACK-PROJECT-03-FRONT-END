@@ -18,7 +18,7 @@ const NavBarTemplate = ({ children, hideNavBar, user, Logout }) => {
   return hideNavBar ? (
     children
   ) : (
-    <div className="template-container">
+    <div className="template-container d-flex flex-column">
       <Navbar className="border-bottom border-3 border-dark" bg="light" expand="lg">
         <Container>
           <Navbar.Brand>
@@ -59,6 +59,32 @@ const NavBarTemplate = ({ children, hideNavBar, user, Logout }) => {
         </Container>
       </Navbar>
       <div className="template-content-container">{children}</div>
+      <footer className="template-footer p-3 d-flex justify-content-between align-items-center border-top border-3 border-dark">
+        <div className="footer-text-container d-flex ms-2 ms-md-4">
+          <a
+            href="https://github.com/pedroneto2/IRONHACK-PROJECT-03-FRONT-END"
+            target="_blank"
+            rel="noreferrer"
+          >
+            repositório front-end
+          </a>
+          <a
+            href="https://github.com/pedroneto2/IRONHACK-PROJECT-03-BACK-END"
+            target="_blank"
+            rel="noreferrer"
+          >
+            repositório back-end
+          </a>
+        </div>
+        <div className="social-media-container">
+          <a href="https://www.instagram.com/" target="_blank" rel="noreferrer">
+            <i className="bi bi-instagram" />
+          </a>
+          <a href="https://www.facebook.com/" target="_blank" rel="noreferrer">
+            <i className="bi bi-facebook mx-2 mx-md-4  " />
+          </a>
+        </div>
+      </footer>
     </div>
   );
 };
