@@ -60,12 +60,12 @@ const RankingPage = () => {
           <p className="text-center text-nowrap my-auto me-2">Filtrar por:</p>
           <Form.Select onChange={handleFilter} aria-label="col-11 Default select example">
             <option value="0">Nota Geral</option>
-            <option value="1">Compreensao do processo seletivo</option>
+            <option value="1">Compreensão do processo seletivo</option>
             <option value="2">Valorização do candidato</option>
-            <option value="3">Tempo de resposta do feedbback</option>
-            <option value="4">Genuidade e autenticidade do feedback</option>
+            <option value="3">Tempo de resposta do feedback</option>
+            <option value="4">Genuinidade e autenticidade do feedback</option>
             <option value="5">Potencial de aprendizagem com o feedback</option>
-            <option value="6">Você indicaria esse proceso seletivo para alguém?</option>
+            <option value="6">Você indicaria este proceso seletivo para alguém?</option>
             <option value="7">
               Você faria novamente este ou outro processo seletivo dessa empresa?
             </option>
